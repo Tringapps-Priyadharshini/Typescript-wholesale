@@ -1,0 +1,22 @@
+.head{
+    height: 80px;
+    background-color: red;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1{
+    padding:15px;
+}
+
+button{
+    margin-right: 100px;
+    padding:15px;
+}
+
+.addProduct{
+    background-color: white;
+    color:black;    
+    height:500px;
+}
