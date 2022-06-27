@@ -4,7 +4,8 @@
         "address":"madurai",
         "products":[{
             "productName":"",
-            "quantity":1
+            "quantity":1,
+            "price":0
         }]
     },
     {
@@ -12,7 +13,8 @@
         "address":"chennai",
         "products":[{
             "productName":"",
-            "quantity":1
+            "quantity":1,
+            "price":0
         }]
     },
     {
@@ -20,7 +22,8 @@
         "address":"Coimbatore",
         "products":[{
             "productName":"",
-            "quantity":1
+            "quantity":1,
+            "price":0
         }]
     }
 ]

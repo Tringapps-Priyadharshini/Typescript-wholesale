@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
+import { MouseEvent} from 'react';
 import { wholesaleProductType } from '../interface/wholesaleProductType';
-import { retailerType } from '../interface/retailerType';
-// import {buyType} from '../interface/buyType';
 import wholesaleDetails from '../wholesaleJson/wholesaleDetails.json';
 import retailer from '../retailerJson/retailer.json';
 import './addProductContainer.css';
@@ -21,67 +20,42 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
         localStorage.setItem("wholesale", JSON.stringify(productDetails));
         //localStorage.setItem("retailers", JSON.stringify(retailerDetails));
     }, [retailerDetails])
-    const handleAdd = (event: any) => {
-        event.preventDefault();
-        console.log(cAddress)
-        retailerDetails.forEach((retailerDet) => {
-            if (retailerDet.name === cUser) {
-                let newProduct = { productName: '', quantity: 1 }
-                //respective retailer object
-                retailerDet.products.push({
-                    productName: pname,
-                    quantity: quantity
-                });
-                retailerDet.products.push(newProduct)
-            }
-        })
-        
-
-        console.log(retailerDetails)
-
-        // setBuy([...buy,{
-        //     productName:pname,
-        //     quantity:quantity
-        // }])
-        // setBuy([...retailerDetails,{
-        //     // name:cUser,
-        //     // address:cAddress,
-        //     products:[
-        //         {
-        //             productName:pname,
-        //             quantity:quantity
-        //         }
-        //     ]
-        // }])
-
-
-    }
+ 
+    
 
     // const handleQuantity = (event: any) => {
     //     setQuantity(event.target.value);
     // }
 
-    // const handleProductName = (event: any) => {
-    //     setPname(event.target.value);
-    //     productDetails.products.forEach((product) => {
-    //         if (product.productName === event.target.value) {
-    //             setPrice(product.price)
-    //         }
-    //     })
-    // }
 
     const handleChange = (event:any,index:number) => {
-        let data :any = [...retailerDetails];
+        // productDetails.products.forEach((product)=>{
+        //     if(product.productName === event.target.value){
+        //         setPrice(product.price)
+        //         console.log("price",price)
+        //     }
+        // })
+
+        const res = productDetails.products.find((product)=>product.productName === event.target.value)
+        console.log("res",res)
+        let data  = [...retailerDetails];
+        console.log("data",data)
         data.forEach((retailerDet:any) => {
             if (retailerDet.name === cUser) {
                 //respective retailer object
-                retailerDet[index][event.target.name] = event.target.value;
-                setRetailerDetails(retailerDet);
+                let prod = [...retailerDet.products]
+                prod[index][event.target.name] = event.target.value;
+                prod[index]['price'] = res?.price 
+               
+                setRetailerDetails([...retailerDetails]);
             }
         })
+        
+        console.log("retailerDetails change", retailerDetails)
+        
     }
 
-    const handleProductName = (event:any) => {
+    const handleProductName = (event:React.ChangeEvent<HTMLInputElement>) => {
         setPname(event.target.value);
         productDetails.products.forEach((product) => {
             if (product.productName === event.target.value) {
@@ -109,48 +83,35 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
 
     }
 
-    // const handleChange = (event:any,index:any) => {
-    //     event.preventDefault();
-    //     let data:any = [...retailerDetails];
-    //     data[index][event.target.name] = event.target.value;
-    //     retailerDetails.forEach((retailerDet) => {
-    //         if (retailerDet.name === cUser) {
-    //             //respective retailer object
-    //             //retailerDet.products.push(data);
-    //             setRetailerDetails(data);
-    //         }
-    //     })
-    
-    //     console.log(retailerDetails)
-        
-    // }
 
-    const handleAddProduct = (event:any) =>{
+
+    const handleAddProduct = (event:MouseEvent<HTMLButtonElement>) =>{
         event.preventDefault();
-        let newProduct = {productName:'',quantity:1}
-        console.log(cUser)
+        let newProduct = {productName:'',quantity:1,price:0}
         retailerDetails.forEach((retailerDet) => {
             if (retailerDet.name === cUser) {
                 //respective retailer object
                 let product = [...retailerDet.products];
-                console.log("product",product)
                 product.push(newProduct);
+                retailerDet.products.push(newProduct)
             }
         })
-        console.log(retailerDetails)
+        console.log("retnew",retailerDetails)
         
 
     }
 
-
-
+        
+    
     return (
         <div>
+            <div className = "title">
             <div className="address">
                 {cAddress}
             </div>
             <div className="close">
                 <button type="submit">x</button>
+            </div>
             </div>
             <form>
                 {
@@ -161,14 +122,16 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                             {
                                
                                 retailerDet.name === cUser &&
-                                
+
                                     retailerDet.products.map((retProduct,index)=>{
                                         return(
+                                            <>
                                             <div key = {index}>
-                                                <select name = "productName" 
+                                                <select name = "productName" value = {retProduct.productName}
                                                 // onChange = {(event)=>handleProductName(event)}
                                                 onChange = {(event)=>handleChange(event,index)}
                                                 >
+                                                    <option></option>
                                                     {
                                                         productDetails.products.map((product)=>{
                                                             return(
@@ -184,7 +147,14 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                                                 // onChange = {handleQuantity}
                                                 onChange = {(event)=>handleChange(event,index)} 
                                                 />
+                                                
+                                                
+                                                 <label>{retProduct.price}</label>
+
+                                                 <label>{retProduct.quantity * retProduct.price}</label>
+
                                             </div>
+                                            </>
                                         )
                                     })
                                    
@@ -257,7 +227,7 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                 <label>{price}</label>
 
                 <label>{quantity * price}</label> */}
-                <button onClick={handleAdd}>+</button>
+                {/* <button onClick={handleAdd}>+</button> */}
 
                 <button type="submit" onClick={handleCheck}>Buy</button>
 

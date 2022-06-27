@@ -15,8 +15,41 @@ button{
     padding:15px;
 }
 
+.overlap{
+    width:100%;
+}
+
 .addProduct{
     background-color: white;
     color:black;    
     height:500px;
 }
+
+.display{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.retDetail{
+    display:flex;
+}
+
+.retailerDisplay{
+    width:33%;
+    margin-left: 10px;
+}
+
+.retailerDisplay p {
+    background-color: black;
+    color:white;
+    padding:10px;
+    font-size: 20px;
+}
+
+.items{
+    margin-right: 100px;
+}
+
+

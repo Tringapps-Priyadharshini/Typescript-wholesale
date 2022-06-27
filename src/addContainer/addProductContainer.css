@@ -13,4 +13,11 @@ label,input,select{
     font-size:30px;
     text-transform: capitalize;
     padding:10px;
+    width:100%;
+  
 }
+
+.title{
+    display:flex;
+}
+
