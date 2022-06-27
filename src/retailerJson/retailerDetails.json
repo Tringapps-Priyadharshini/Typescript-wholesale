@@ -1,0 +1,14 @@
+[
+    {
+        "name":"retailer1",
+        "address":"madurai"
+    },
+    {
+        "name":"retailer2",
+        "address":"chennai" 
+    },
+    {
+        "name":"retailer3",
+        "address":"Coimbatore"
+    }
+]
