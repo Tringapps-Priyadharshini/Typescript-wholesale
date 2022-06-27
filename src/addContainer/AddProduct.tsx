@@ -57,11 +57,9 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
 
     }
 
-    const handleQuantity = (event: any) => {
-        setQuantity(event.target.value);
-
-
-    }
+    // const handleQuantity = (event: any) => {
+    //     setQuantity(event.target.value);
+    // }
 
     // const handleProductName = (event: any) => {
     //     setPname(event.target.value);
@@ -72,6 +70,16 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
     //     })
     // }
 
+    const handleChange = (event:any,index:number) => {
+        let data :any = [...retailerDetails];
+        data.forEach((retailerDet:any) => {
+            if (retailerDet.name === cUser) {
+                //respective retailer object
+                retailerDet[index][event.target.name] = event.target.value;
+                setRetailerDetails(retailerDet);
+            }
+        })
+    }
 
     const handleProductName = (event:any) => {
         setPname(event.target.value);
@@ -117,8 +125,20 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
         
     // }
 
-    const handleAddProduct = () =>{
-        let data = [...retailerDetails];
+    const handleAddProduct = (event:any) =>{
+        event.preventDefault();
+        let newProduct = {productName:'',quantity:1}
+        console.log(cUser)
+        retailerDetails.forEach((retailerDet) => {
+            if (retailerDet.name === cUser) {
+                //respective retailer object
+                let product = [...retailerDet.products];
+                console.log("product",product)
+                product.push(newProduct);
+            }
+        })
+        console.log(retailerDetails)
+        
 
     }
 
@@ -145,7 +165,10 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                                     retailerDet.products.map((retProduct,index)=>{
                                         return(
                                             <div key = {index}>
-                                                <select name = "productName" onChange = {(event)=>handleProductName(event)}>
+                                                <select name = "productName" 
+                                                // onChange = {(event)=>handleProductName(event)}
+                                                onChange = {(event)=>handleChange(event,index)}
+                                                >
                                                     {
                                                         productDetails.products.map((product)=>{
                                                             return(
@@ -157,7 +180,10 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                                                     }
                                                
                                                 </select>
-                                                <input type = "number" name = "quantity" value =  {retProduct.quantity} onChange = {handleQuantity} />
+                                                <input type = "number" name = "quantity" value =  {retProduct.quantity} 
+                                                // onChange = {handleQuantity}
+                                                onChange = {(event)=>handleChange(event,index)} 
+                                                />
                                             </div>
                                         )
                                     })
