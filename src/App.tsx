@@ -1,11 +1,9 @@
 import './App.css';
-// import HeaderContainer from './pages/HeaderContainer';
-import AddContainer from './addContainer/AddContainer';
+import HeaderContainer from './pages/HeaderContainer';
 function App() {
   return (
     <div>
-      {/* <HeaderContainer /> */}
-      <AddContainer/>
+      <HeaderContainer />
     </div>
   );
 }

@@ -1,37 +1,33 @@
 import './headerContainer.css';
 import { useState } from 'react';
 import { Container,Backdrop } from '@mui/material';
-import AddProduct from '../addContainer/AddProduct';
+import AddContainer from '../addContainer/AddContainer';
 import retailer from '../retailerJson/retailer.json';
 import { retailerType } from '../interface/retailerType';
-import DisplayContainer from '../DisplayContainer/DisplayContainer';
 const HeaderContainer = () => {
     // const [retailerDetails,setRetailerDetails] = useState<retailerType>(retailer);
     const [retailerDetails, setRetailerDetails] = useState(retailer);
-    const [cAddress,setAddress] = useState('');
     const [cUser,setUser] = useState('')
 
     const [open, setOpen] = useState(false);
     const handleClose = () => {
     //   //  setOpen(false);
     };
-    const handleOverlap = (cAddress:string,cname:string) => {
-        console.log("cuser",cAddress)
+    const handleOverlap = (cname:string) => {
         setOpen(!open);
-        setAddress(cAddress)
         setUser(cname)
     }
     return (
         <>
         <div className="head">
-            <h1>Fancy Products</h1>
+            <h1>Products</h1>
             <div className='retailers'>
                 {
                     retailerDetails.map((retailers) => {
                         return (
                             <>
 
-                                <button type="submit" onClick={()=>{handleOverlap(retailers.address,retailers.name)}}>{retailers.name}</button>
+                                <button type="submit" onClick={()=>{handleOverlap(retailers.name)}}>{retailers.name}</button>
 
                             </>
                         )
@@ -46,7 +42,7 @@ const HeaderContainer = () => {
                  <div className = "overlap">
                    { 
                    open && <Container className="overlap addProduct">
-                        <AddProduct cAddress = {cAddress} cUser = {cUser}  open = {open} setOpen = {setOpen} />
+                        <AddContainer cUser = {cUser}  open = {open} setOpen = {setOpen} />
                     </Container>
                     }
             </div>
@@ -56,8 +52,6 @@ const HeaderContainer = () => {
 
             </div>
           
-           
-            {/* <DisplayContainer/> */}
             
         </div>
         <div className = "retDetail">
@@ -68,9 +62,7 @@ const HeaderContainer = () => {
                                <p> NAME : {retailerDetail.name} </p>
                                <p> ADDRESS : {retailerDetail.address} </p>
                                 
-                             
-                                <label>ProductName</label>
-                                <label>Quantity</label>
+
                                
                                 
                                {retailerDetail.products.map((product)=>{
@@ -78,16 +70,13 @@ const HeaderContainer = () => {
                                     <div>                                    
                                     {product.productName &&
                                     
-                                    <>
-                                        <label className = "items">{product.productName}</label>
-                                        <label className = "items">{product.quantity}</label>
-                                    </>
-                                    
-                                
+                                    <div className='products'>
+                                        <label className = "items">name:{product.productName}</label>
+                                        <label className = "items">quantity:{product.quantity}</label>
+                                    </div>
+
                                     }
                                      </div>
-                               
-
                                 )
                                
                                })}

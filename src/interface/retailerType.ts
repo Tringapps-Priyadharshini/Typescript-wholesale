@@ -4,17 +4,17 @@ export type productDetails = {
 }
 export type retailerType = [
     {
-        cname:string,
+        name:string,
         address:string,
         products:productDetails[]
     },
     {
-        cname:string,
+        name:string,
         address:string,
         products:productDetails[]
     },
     {
-        cname:string,
+        name:string,
         address:string,
         products:productDetails[]
     }

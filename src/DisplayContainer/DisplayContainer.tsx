@@ -1,19 +1,15 @@
 import HeaderContainer from '../pages/HeaderContainer';
-import { useState,useEffect } from 'react';
-const DisplayContainer = () => {
-    const [displayDetails,setDisplayDetails] = useState([])
-    useEffect(()=>{
-        console.log("asdf" ,localStorage.getItem(JSON.parse('buy')));
-    },[])
+import { useState} from 'react';
+const DisplayContainer = ({retailerDetails}:any) => {
+    console.log("hi")
     return (
         <div className="display">
-            <HeaderContainer/>
             {
-                displayDetails.map((displayRetailer:any) => {
-                    return (
-                        <div className="displayRetailerDetails">
-                            asdfadsfadsf
-                            {displayRetailer.name}
+                retailerDetails.map((details:any) => {
+                    return(
+                        <div>
+                           <p>{details.name}</p>
+                            <p>{details.address}</p>
                         </div>
                     )
                 })

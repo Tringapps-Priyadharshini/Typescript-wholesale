@@ -6,7 +6,7 @@ label,input,select{
     font-size:20px;
 }
 
-.address{
+.title{
     height:40px;
     background-color: black;
     color:white;
@@ -14,10 +14,20 @@ label,input,select{
     text-transform: capitalize;
     padding:10px;
     width:100%;
-  
+    display: flex; 
 }
 
-.title{
+.item{
+    font-size: 20px;
+}
+
+select,input{
+    margin:20px;
+}
+
+.buttons{
     display:flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
 }
-
