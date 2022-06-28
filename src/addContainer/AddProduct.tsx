@@ -144,7 +144,6 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                                                
                                                 </select>
                                                 <input type = "number" name = "quantity" value =  {retProduct.quantity} 
-                                                // onChange = {handleQuantity}
                                                 onChange = {(event)=>handleChange(event,index)} 
                                                 />
                                                 
@@ -159,7 +158,7 @@ const AddProduct = ({ cAddress, cUser, open, setOpen }: any) => {
                                     })
                                    
                                 
-                                    // <input type = "number"/> 
+                                   
                                     
                                 
                             }
