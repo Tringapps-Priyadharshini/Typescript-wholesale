@@ -4,7 +4,7 @@ import wholesaleReducer from "./wholesaleSlice";
 const store = configureStore({
     reducer:{
         wholesale:wholesaleReducer,
-        retailer:retailerReducer
+        retailers:retailerReducer
     }
 
 })
