@@ -2,25 +2,16 @@
     {
         "name":"retailer1",
         "address":"madurai",
-        "products":[{
-            "productName":"",
-            "quantity":1
-        }]
+        "products":[]
     },
     {
         "name":"retailer2",
         "address":"chennai",
-        "products":[{
-            "productName":"",
-            "quantity":1
-        }]
+        "products":[]
     },
     {
         "name":"retailer3",
         "address":"Coimbatore",
-        "products":[{
-            "productName":"",
-            "quantity":1
-        }]
+        "products":[]
     }
 ]

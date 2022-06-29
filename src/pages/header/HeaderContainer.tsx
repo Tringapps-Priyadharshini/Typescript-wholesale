@@ -1,13 +1,12 @@
 import './headerContainer.css';
 import { useState } from 'react';
 import { Container,Backdrop } from '@mui/material';
-import AddContainer from '../addContainer/AddContainer';
-import retailer from '../retailerJson/retailers.json';
-import { retailerType } from '../interface/retailerType';
+// import { useSelector } from 'react-redux';
+import {useAppSelector } from '../../redux/hooks';
+import AddProductContainer from '../addProduct/AddProductContainer';
 const HeaderContainer = () => {
-    // const [retailerDetails,setRetailerDetails] = useState<retailerType>(retailer);
-    const [retailerDetails, setRetailerDetails] = useState(retailer);
-    const [cUser,setUser] = useState('')
+    const retailerDetails = useAppSelector(state => state.retailers.retailers)
+    const [cUser,setUser] = useState<string>('')
 
     const [open, setOpen] = useState(false);
     const handleClose = () => {
@@ -23,11 +22,11 @@ const HeaderContainer = () => {
             <h1>Products</h1>
             <div className='retailers'>
                 {
-                    retailerDetails.map((retailers) => {
+                    retailerDetails.map((retailer) => {
                         return (
                             <>
 
-                                <button type="submit" onClick={()=>{handleOverlap(retailers.name)}}>{retailers.name}</button>
+                                <button type="submit" onClick={()=>{handleOverlap(retailer.name)}}>{retailer.name}</button>
 
                             </>
                         )
@@ -42,7 +41,7 @@ const HeaderContainer = () => {
                  <div className = "overlap">
                    { 
                    open && <Container className="overlap addProduct">
-                        <AddContainer cUser = {cUser}  open = {open} setOpen = {setOpen} />
+                        <AddProductContainer cUser = {cUser} />
                     </Container>
                     }
             </div>
@@ -65,7 +64,7 @@ const HeaderContainer = () => {
 
                                
                                 
-                               {retailerDetail.products.map((product)=>{
+                               {/* {retailerDetail.products.map((product)=>{
                                 return(
                                     <div>                                    
                                     {product.productName &&
@@ -79,7 +78,7 @@ const HeaderContainer = () => {
                                      </div>
                                 )
                                
-                               })}
+                               })} */}
                              
                             </div>
                         )

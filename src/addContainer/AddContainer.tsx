@@ -1,4 +1,4 @@
-import retailer from '../retailerJson/retailer.json';
+import retailer from '../retailerJson/retailers.json';
 import { wholesaleProductType } from '../interface/wholesaleProductType';
 import wholesaleDetails from '../wholesaleJson/wholesaleDetails.json';
 import './addProductContainer.css';

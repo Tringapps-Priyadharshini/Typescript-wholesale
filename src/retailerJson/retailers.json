@@ -1,0 +1,26 @@
+[
+    {
+        "name":"retailer1",
+        "address":"madurai",
+        "products":[{
+            "productName":"",
+            "quantity":1
+        }]
+    },
+    {
+        "name":"retailer2",
+        "address":"chennai",
+        "products":[{
+            "productName":"",
+            "quantity":1
+        }]
+    },
+    {
+        "name":"retailer3",
+        "address":"Coimbatore",
+        "products":[{
+            "productName":"",
+            "quantity":1
+        }]
+    }
+]

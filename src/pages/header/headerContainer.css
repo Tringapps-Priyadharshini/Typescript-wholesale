@@ -1,0 +1,72 @@
+.head{
+    height: 80px;
+    background-color: red;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1{
+    padding:15px;
+    color:gold;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+button{
+    margin-right: 100px;
+    padding:15px;
+}
+
+.overlap{
+    width:100%;
+}
+
+.addProduct{
+    background-color: white;
+    color:black;    
+    height:500px;
+}
+
+.display{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.retDetail{
+    display:flex;
+}
+
+.retailerDisplay{
+    width:33%;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.retailerDisplay p {
+    background-color: black;
+    color:white;
+    padding:10px;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.items{
+    margin-right: 100px;
+}
+
+.products{
+    background-color: rgb(11, 119, 214);
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+label{
+    text-transform: capitalize;
+    font-size: 20px;
+    padding:10px;
+}
+
