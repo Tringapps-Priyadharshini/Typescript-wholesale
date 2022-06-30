@@ -9,9 +9,7 @@ const HeaderContainer = () => {
     const [cUser,setUser] = useState<string>('')
 
     const [open, setOpen] = useState(false);
-    const handleClose = () => {
-    //   //  setOpen(false);
-    };
+
     const handleOverlap = (cname:string) => {
         setOpen(!open);
         setUser(cname)
@@ -36,12 +34,12 @@ const HeaderContainer = () => {
                 <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={open}
-                    onClick={handleClose}
+                   
                 > 
                  <div className = "overlap">
                    { 
-                   open && <Container className="overlap addProduct">
-                        <AddProductContainer cUser = {cUser} />
+                   open && <Container sx = {{maxWidth : "200px"}} className="overlap overlapContainer">
+                        <AddProductContainer cUser = {cUser} setOpen = {setOpen} open = {open}/>
                     </Container>
                     }
             </div>
@@ -53,6 +51,7 @@ const HeaderContainer = () => {
           
             
         </div>
+        {console.log('retdet',retailerDetails)}
         <div className = "retDetail">
                 {
                     retailerDetails.map((retailerDetail)=>{
@@ -61,10 +60,7 @@ const HeaderContainer = () => {
                                <p> NAME : {retailerDetail.name} </p>
                                <p> ADDRESS : {retailerDetail.address} </p>
                                 
-
-                               
-                                
-                               {/* {retailerDetail.products.map((product)=>{
+                                 {retailerDetail.products.map((product)=>{
                                 return(
                                     <div>                                    
                                     {product.productName &&
@@ -78,7 +74,7 @@ const HeaderContainer = () => {
                                      </div>
                                 )
                                
-                               })} */}
+                               })}
                              
                             </div>
                         )

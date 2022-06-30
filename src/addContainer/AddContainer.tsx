@@ -7,7 +7,7 @@ import { ChangeEvent, useState } from 'react';
 
 const AddContainer = ({cUser, open, setOpen }: any) => {
     const [retailerDetails, setRetailerDetails] = useState(retailer);
-    const [productDetails, setProductDetails] = useState<wholesaleProductType>(wholesaleDetails);
+    const [productDetails, setProductDetails] = useState(wholesaleDetails);
     const [checkBuy,setCheckBuy] = useState(false)
 
     const handleChange = (event: any, index: number) => {
@@ -65,7 +65,7 @@ const AddContainer = ({cUser, open, setOpen }: any) => {
                                             value={product.productName}>
                                                 <option></option>
                                                 {
-                                                    productDetails.products.map((product) => {
+                                                    productDetails.map((product) => {
                                                         return (
                                                             <>
                                                                 <option value={product.productName}>{product.productName}</option>
@@ -80,7 +80,7 @@ const AddContainer = ({cUser, open, setOpen }: any) => {
                                              >
                                              </input>
                                              {
-                                                productDetails.products.map((wholesaleProduct)=>{
+                                                productDetails.map((wholesaleProduct)=>{
                                                     return(
                                                         <>
                                                             {wholesaleProduct.productName === product.productName && 

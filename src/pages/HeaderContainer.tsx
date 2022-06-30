@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container,Backdrop } from '@mui/material';
 import AddContainer from '../addContainer/AddContainer';
 import retailer from '../retailerJson/retailers.json';
-import { retailerType } from '../interface/retailerType';
+import { useAppSelector } from '../redux/hooks';
 const HeaderContainer = () => {
     // const [retailerDetails,setRetailerDetails] = useState<retailerType>(retailer);
     const [retailerDetails, setRetailerDetails] = useState(retailer);
@@ -68,14 +68,12 @@ const HeaderContainer = () => {
                                {retailerDetail.products.map((product)=>{
                                 return(
                                     <div>                                    
-                                    {product.productName &&
                                     
                                     <div className='products'>
                                         <label className = "items">name:{product.productName}</label>
                                         <label className = "items">quantity:{product.quantity}</label>
                                     </div>
 
-                                    }
                                      </div>
                                 )
                                

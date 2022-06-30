@@ -1,5 +1,4 @@
-{
-    "products": [
+[
         {
             "productName": "saree",
             "quantity": 20,
@@ -17,4 +16,4 @@
             "price" : 1200
         }
     ]
-}
+
