@@ -1,0 +1,138 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    gap:400px;
+    /* background-color: #F92C85; */
+    background-color:#081266;
+    height:80px;
+    text-align: center;
+    color:#FDF5DF;
+}
+
+.header span{
+    margin: 13px;
+    font-size: 33px;
+    font-style: italic;
+
+}
+
+.retailName{
+    margin-right:60px;
+    padding:10px;
+    background-color: white;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.retailers{
+    margin-top: 20px;
+}
+
+.displayDetails{
+    display:flex;
+    justify-content: space-around;
+}
+
+.retailerDetails{
+    width:450px;
+    display:flex;
+    flex-direction: column;
+    padding:15px;
+}
+
+.retailerDetails span {
+    /* #00abe1 */
+    /* background-color:#dfd5d5e0; */
+    background-color: #F92C85;
+    color:#081266;
+    padding:10px;
+    font-size:20px;
+}
+
+.overlay{
+    background-color: white;
+    height:500px;
+    width:900px;
+
+}
+
+.title .head{
+    font-size:25px;
+}
+
+.title {
+    background-color: #002D72;
+    color:white;
+    text-transform: capitalize;
+    /* padding:15px; */
+    display: flex;
+    gap:720px;
+    padding:10px;   
+}
+
+.close{
+    background-color: white;
+    font-size:20px;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;    
+}
+
+.productTitle,.title{
+    position:sticky;
+}
+
+.productTitle,.add{
+    color:black;
+    margin-top:20px;
+}
+
+
+select{
+    width:120px;
+    height:40px;
+    font-size:20px;
+}
+
+input{
+    height:40px;
+    font-size:20px;
+    width:120px;
+}
+
+.products,.add{
+    display:flex;
+}
+
+.productTitle,.product{
+    width:180px;
+}
+
+.addProducts{
+    text-align:center;
+}
+
+.addItem{
+    font-size:20px;
+    cursor: pointer;
+    /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;  */
+    background-color:red;
+    color:white;
+    
+
+
+}
+
+.supply{
+    float:right;
+    margin-right:20px;
+    margin-top: 20px;
+
+}
+
+.supply button{
+    font-size: 20px;
+    background-color:rgb(30, 202, 30);
+    padding:10px;
+    cursor:pointer;
+    color:white;
+}
