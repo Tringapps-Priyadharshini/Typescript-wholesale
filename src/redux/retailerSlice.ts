@@ -49,3 +49,6 @@ const retailerSlice = createSlice({
 
 export default retailerSlice.reducer;
 export const {addProduct} =  retailerSlice.actions;
+
+
+

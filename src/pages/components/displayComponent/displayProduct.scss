@@ -1,0 +1,53 @@
+$black : black;
+
+.displayDetails{
+    display:flex;
+    justify-content: space-around;
+}
+
+.retailerDetails{
+    width:450px;
+    display:flex;
+    flex-direction: column;
+    padding:15px;
+}
+
+.retailerDetails{
+    span {
+        background-color: #F92C85;
+        color:white;
+        padding:10px;
+        font-size:20px;
+    }
+} 
+
+.productsList{
+    margin-top: 30px;
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    text-transform: capitalize;
+    border:1px solid $black;
+}
+
+.productsList{
+    label{
+        font-size:20px;
+    }
+}
+
+.productsList {
+    .date{
+        background-color: aliceblue;
+        color:$black;
+        text-align: center;
+        margin-bottom: 10px;
+        border:1px solid $black;
+    }
+}
+
+p{
+    padding:30px;
+    text-align: center;
+    font-size: 20px;
+}

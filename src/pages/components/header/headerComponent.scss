@@ -2,17 +2,18 @@
     display:flex;
     justify-content: space-between;
     gap:200px;
-    /* background-color: #F92C85; */
     background-color:#081266;
     height:80px;
     text-align: center;
     color:#FDF5DF;
 }
 
-.header span{
-    margin: 13px;
-    font-size: 30px;
-    font-style: italic;
+.header {
+    span{
+        margin: 13px;
+        font-size: 30px;
+        font-style: italic;
+    }
 
 }
 

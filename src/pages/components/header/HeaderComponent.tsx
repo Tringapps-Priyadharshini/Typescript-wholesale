@@ -1,4 +1,4 @@
-import './headerComponent.css';
+import './headerComponent.scss';
 import { useState } from 'react';
 import { Container,Backdrop } from '@mui/material';
 import {useAppSelector } from '../../../redux/hooks';
@@ -7,11 +7,13 @@ import DisplayProduct from '../displayComponent/DisplayProduct';
 const HeaderContainer = () => {
     const retailerDetails = useAppSelector(state => state.retailers.retailers)
     const [cUser,setUser] = useState<string>('')
+    const [cAddress,setAddress] = useState<string>('')
     const [open, setOpen] = useState(false);
 
-    const handleOverlap = (cname:string) => {
+    const handleOverlap = (cUser:string,cAddress:string) => {
         setOpen(!open);
-        setUser(cname)
+        setUser(cUser);
+        setAddress(cAddress)
     }
     return (
         <div>
@@ -22,7 +24,7 @@ const HeaderContainer = () => {
                         return (
                             <div className = "retailers">
 
-                                <button type="submit" className = "retailName" onClick={()=>{handleOverlap(retailer.name)}}>{retailer.name}</button>
+                                <button type="submit" className = "retailName" onClick={()=>{handleOverlap(retailer.name,retailer.address)}}>{retailer.name}</button>
 
                             </div>
                         )
@@ -37,20 +39,16 @@ const HeaderContainer = () => {
                  <div>
                    { 
                    open && <Container sx = {{maxWidth : "200px"}}>
-                        <AddProductComponent cUser = {cUser} setOpen = {setOpen} open = {open}/>
+                        <AddProductComponent cUser = {cUser} cAddress = {cAddress} setOpen = {setOpen} open = {open}/>
                     </Container>
                     }
                 </div>
-                
-                </Backdrop> 
-                
-          
             
+                </Backdrop>  
+  
         </div>
         <DisplayProduct />
 
-
-        
         </div>
     )
 }

@@ -1,16 +1,16 @@
 [
     {
         "name":"Pinky Fashion",
-        "address":"madurai",
+        "address":"Madurai",
         "products":[]
     },
     {
         "name":"Trendy clothes",
-        "address":"chennai",
+        "address":"Chennai",
         "products":[]
     },
     {
-        "name":"Stylish Collectionss",
+        "name":"Stylish Collections",
         "address":"Coimbatore",
         "products":[]
     }

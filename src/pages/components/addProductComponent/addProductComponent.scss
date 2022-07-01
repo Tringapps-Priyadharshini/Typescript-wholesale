@@ -1,35 +1,40 @@
-/*
+$white:white;
+$black:black;
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+   margin: 0;
 }
 
-*/
-
 .overlay{
-    background-color: white;
+    background-color: $white;
     height:500px;
     width:900px;
 }
 
-.title .head{
-    font-size:25px;
+
+.head{
+    display: flex;
+}
+
+.title {
+    .head{
+        font-size:25px;
+    }
 }
 
 .title {
     background-color: #002D72;
-    color:white;
+    color:$white;
     text-transform: capitalize;
-    /* padding:15px; */
     display: flex;
-    gap:700px;
+    justify-content: space-between;
     padding:10px;   
 }
 
 .close{
-    background-color: white;
+    background-color: $white;
     font-size:25px;
     width:30px;
  
@@ -40,7 +45,7 @@ input::-webkit-inner-spin-button {
 }
 
 .productTitle,.add{
-    color:black;
+    color:$black;
     margin-top:20px;
 }
 
@@ -49,7 +54,7 @@ select{
     width:120px;
     height:40px;
     font-size:20px;
-    color:black;
+    color:$black;
 }
 
 input{
@@ -68,6 +73,13 @@ input{
     background-color:skyblue;
 }
 
+.products {
+    .productTitle{
+        padding:2px;
+    }
+}
+
+
 .productTitle,.product{
     width:180px;
 }
@@ -81,12 +93,11 @@ input{
 .addItem{
     font-size:20px;
     cursor: pointer;
-    /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;  */
     background-color:red;
-    color:white;
+    color:$white;
     border:none;
-    padding:4px;
     margin-bottom: 10px;
+    padding:8px;
 }
 
 .supply{
@@ -95,17 +106,22 @@ input{
     margin-top: 20px;
 }
 
-.supply button{
-    font-size: 20px;
-    background-color:rgb(30, 202, 30);
-    padding:10px;
-    cursor:pointer;
-    color:white;
-    border:2px solid black;
+.supply{
+    button{
+        font-size: 20px;
+        background-color:rgb(30, 202, 30);
+        padding:10px;
+        cursor:pointer;
+        color:$white;
+        border:2px solid $black;
+    }
 }
-.products .productTitle{
-    font-size:20px;
-    text-transform: capitalize;
+
+.products {
+    .productTitle{
+        font-size:20px;
+        text-transform: capitalize;
+    }
 }
 
 .delete{
@@ -113,5 +129,5 @@ input{
 }
 
 p{
-    color:black;
+    color:$black;
 }

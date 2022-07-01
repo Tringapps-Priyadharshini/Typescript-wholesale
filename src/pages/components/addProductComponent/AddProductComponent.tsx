@@ -3,10 +3,8 @@ import { useAppSelector,useAppDispatch} from "../../../redux/hooks";
 import {v4 as uuidv4} from 'uuid'
 import {addProduct} from '../../../redux/retailerSlice';
 import { ChangeEvent } from "react";
-import './addProductComponent.css';
+import './addProductComponent.scss';
 import { AiFillDelete } from 'react-icons/ai';
-import {useState} from 'react'
-
 type productType = {
     productDetails:{
         id:string,
@@ -20,15 +18,14 @@ type productType = {
 type setOpenType = (type:boolean) =>void
 type cUserType = {
     cUser:string,
+    cAddress:string,
     open:boolean,
     setOpen: setOpenType
 }
-const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
+const AddProductContainer = ({cUser,cAddress,open,setOpen}:cUserType) => {
     const dispatch = useAppDispatch();
-    const retailerDetails = useAppSelector(state=>state.retailers.retailers)
     const wholesaleDetails = useAppSelector(state=>state.wholesale.products)
-    const [checkProduct,setProduct] = useState('')
-    const currentDate = new Date().toLocaleString()
+     const currentDate = new Date().toLocaleString()
     const {
         register,
         control,
@@ -82,16 +79,15 @@ const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
         return wholesaleDetails.find((product)=>product.productName === productName)?.quantity
     }
 
-    
-
     const addItem = () => {
         if(purchase[fields.length - 1].productName !== '') 
         {
             append({id:uuidv4(),productName:'',quantity:1}) 
-            setProduct(purchase[fields.length-1].productName)
         }
-        else    
-            alert("Enter Valid Details")
+        else 
+        {
+             alert("Enter Valid Details")
+        }   
         
     }
 
@@ -101,7 +97,10 @@ const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="overlay">
                     <div className = "title">
-                        <div className="head">{cUser}</div>
+                        <div className="head">
+                            <div>{cUser},&nbsp;</div>
+                            <div>{cAddress}</div>
+                        </div>
                         <div>
                         <button className = "close" onClick = {handleClose}>x</button>
                         </div>
@@ -113,8 +112,10 @@ const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
                         <div className = "productTitle">Price</div>
                         <div className = "productTitle">Total Price</div>
                         <div className = "productTitle">
+                            { fields.length !==  wholesaleDetails.length &&
                             <button type = "button" className="addItem" onClick = {addItem}>ADD</button>
-                        </div>
+                            }
+                            </div>
                     </div>
 
                 
@@ -133,7 +134,7 @@ const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
                                     {
                                         wholesaleDetails.map((product)=>{
                                             return(
-                                              checkProduct !== product.productName && product.quantity && <option value = {product.productName}>{product.productName}</option>
+                                               product.quantity && <option value = {product.productName} disabled = {purchase.find((purchaseProduct)=>purchaseProduct.productName === product.productName)?true:false} >{product.productName}</option>
                                             )
                                         })
                                     }
@@ -160,6 +161,8 @@ const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
                                     </>
                                 }
                             </div>
+
+                            
                             
                             </>
                         )
@@ -167,11 +170,10 @@ const AddProductContainer = ({cUser,open,setOpen}:cUserType) => {
                 }
 
                 </div>
+
                 <div className="supply">
                     <button type = "submit">Supply</button>
                 </div>
-
-
             </div>
             </form>
         </div>

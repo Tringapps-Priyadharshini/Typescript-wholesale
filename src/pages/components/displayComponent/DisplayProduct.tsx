@@ -1,4 +1,4 @@
-import './displayProduct.css';
+import './displayProduct.scss';
 import { useAppSelector } from "../../../redux/hooks";
 const DisplayProduct = () => {
     const retailerDetails = useAppSelector(state=>state.retailers.retailers)
