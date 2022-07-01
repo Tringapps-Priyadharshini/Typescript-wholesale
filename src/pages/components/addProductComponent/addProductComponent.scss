@@ -25,7 +25,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     padding:10px;  
-    
+
     .head{
         font-size:25px;
     }
@@ -66,15 +66,6 @@ input{
     display:flex;
 }
 
-.products {
-    position: sticky;
-    top:0px;
-    background-color:skyblue;
-    .productTitle{
-        padding:2px;
-    }
-}
-
 
 .productTitle,.product{
     width:180px;
@@ -100,9 +91,7 @@ input{
     float:right;
     margin-right:20px;
     margin-top: 20px;
-}
 
-.supply{
     button{
         font-size: 20px;
         background-color:rgb(30, 202, 30);
@@ -114,9 +103,14 @@ input{
 }
 
 .products {
+    position: sticky;
+    top:0px;
+    background-color:skyblue;
+
     .productTitle{
         font-size:20px;
         text-transform: capitalize;
+        padding:2px;
     }
 }
 
