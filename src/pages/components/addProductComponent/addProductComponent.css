@@ -1,0 +1,117 @@
+/*
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+*/
+
+.overlay{
+    background-color: white;
+    height:500px;
+    width:900px;
+}
+
+.title .head{
+    font-size:25px;
+}
+
+.title {
+    background-color: #002D72;
+    color:white;
+    text-transform: capitalize;
+    /* padding:15px; */
+    display: flex;
+    gap:700px;
+    padding:10px;   
+}
+
+.close{
+    background-color: white;
+    font-size:25px;
+    width:30px;
+ 
+}
+
+.productTitle,.title{
+    position:sticky;
+}
+
+.productTitle,.add{
+    color:black;
+    margin-top:20px;
+}
+
+
+select{
+    width:120px;
+    height:40px;
+    font-size:20px;
+    color:black;
+}
+
+input{
+    height:40px;
+    font-size:20px;
+    width:120px;
+}
+
+.products,.add{
+    display:flex;
+}
+
+.products{
+    position: sticky;
+    top:0px;
+    background-color:skyblue;
+}
+
+.productTitle,.product{
+    width:180px;
+}
+
+.addProducts{
+    text-align:center;
+    max-height: 370px;
+    overflow-y: scroll;
+}
+
+.addItem{
+    font-size:20px;
+    cursor: pointer;
+    /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;  */
+    background-color:red;
+    color:white;
+    border:none;
+    padding:4px;
+    margin-bottom: 10px;
+}
+
+.supply{
+    float:right;
+    margin-right:20px;
+    margin-top: 20px;
+}
+
+.supply button{
+    font-size: 20px;
+    background-color:rgb(30, 202, 30);
+    padding:10px;
+    cursor:pointer;
+    color:white;
+    border:2px solid black;
+}
+.products .productTitle{
+    font-size:20px;
+    text-transform: capitalize;
+}
+
+.delete{
+    font-size: 25px;
+}
+
+p{
+    color:black;
+}

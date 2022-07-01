@@ -1,5 +1,5 @@
 import './App.css';
-import HeaderContainer from './pages/header/HeaderContainer';
+import HeaderContainer from './pages/components/header/HeaderComponent';
 function App() {
   return (
     <div>

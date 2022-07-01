@@ -6,14 +6,15 @@ type productType = {
     id: string,
     productName: string,
     quantity: number,
-    price:number
+    price:number,
+    date:string
 }
 
 type retailerType = {
     retailers: {
         name: string,
         address: string,
-        products: productType[]
+        products: productType[],
     }[]
 }
 

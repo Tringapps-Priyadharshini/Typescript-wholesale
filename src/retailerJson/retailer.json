@@ -1,16 +1,16 @@
 [
     {
-        "name":"retailer1",
+        "name":"Pinky Fashion",
         "address":"madurai",
         "products":[]
     },
     {
-        "name":"retailer2",
+        "name":"Trendy clothes",
         "address":"chennai",
         "products":[]
     },
     {
-        "name":"retailer3",
+        "name":"Stylish Collectionss",
         "address":"Coimbatore",
         "products":[]
     }
