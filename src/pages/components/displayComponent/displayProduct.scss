@@ -10,9 +10,7 @@ $black : black;
     display:flex;
     flex-direction: column;
     padding:15px;
-}
 
-.retailerDetails{
     span {
         background-color: #F92C85;
         color:white;
@@ -21,22 +19,17 @@ $black : black;
     }
 } 
 
-.productsList{
+.productsList {
     margin-top: 30px;
     display:flex;
     flex-direction: column;
     padding:10px;
     text-transform: capitalize;
     border:1px solid $black;
-}
 
-.productsList{
     label{
         font-size:20px;
     }
-}
-
-.productsList {
     .date{
         background-color: aliceblue;
         color:$black;
