@@ -4,16 +4,16 @@ import { Container,Backdrop } from '@mui/material';
 import {useAppSelector } from '../../../redux/hooks';
 import AddProductComponent from '../addProductComponent/AddProductComponent';
 import DisplayProduct from '../displayComponent/DisplayProduct';
-const HeaderContainer = () => {
+const HeaderComponent = () => {
     const retailerDetails = useAppSelector(state => state.retailers.retailers)
     const [cUser,setUser] = useState<string>('')
     const [cAddress,setAddress] = useState<string>('')
     const [open, setOpen] = useState(false);
 
-    const handleOverlap = (cUser:string,cAddress:string) => {
+    const handleOverlap = (cName:string,address:string) => {
         setOpen(!open);
-        setUser(cUser);
-        setAddress(cAddress)
+        setUser(cName);
+        setAddress(address)
     }
     return (
         <div>
@@ -53,4 +53,4 @@ const HeaderContainer = () => {
     )
 }
 
-export default HeaderContainer;
+export default HeaderComponent;
