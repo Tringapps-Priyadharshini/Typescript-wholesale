@@ -22,7 +22,7 @@ type cUserType = {
     open:boolean,
     setOpen: setOpenType
 }
-const AddProductContainer = ({cUser,cAddress,open,setOpen}:cUserType) => {
+const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
     const dispatch = useAppDispatch();
     const wholesaleDetails = useAppSelector(state=>state.wholesale.products)
      const currentDate = new Date().toLocaleString()
@@ -180,4 +180,4 @@ const AddProductContainer = ({cUser,cAddress,open,setOpen}:cUserType) => {
     )
 }
 
-export default AddProductContainer;
+export default AddProductComponent;
