@@ -1,24 +1,8 @@
 import { createSlice} from "@reduxjs/toolkit";
 import retailerDetails from '../retailerJson/retailer.json';
+import { retailer } from "../interface/RetailerInterface";
 
-
-type productType = {
-    id: string,
-    productName: string,
-    quantity: number,
-    price:number,
-    date:string
-}
-
-type retailerType = {
-    retailers: {
-        name: string,
-        address: string,
-        products: productType[],
-    }[]
-}
-
-const initialState : retailerType = {
+const initialState : retailer = {
     retailers : localStorage['retailerDetails'] ? JSON.parse(localStorage['retailerDetails']) : retailerDetails 
 }
 

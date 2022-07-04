@@ -34,8 +34,11 @@ input::-webkit-inner-spin-button {
 
 .close{
     background-color: $white;
-    font-size:25px;
+    font-size:18px;
+    padding:5px;
     width:30px;
+    color:black;
+    cursor:pointer;
  
 }
 
@@ -78,13 +81,12 @@ input{
 }
 
 .addItem{
-    font-size:20px;
+    font-size:30px;
     cursor: pointer;
-    background-color:red;
-    color:$white;
-    border:none;
-    margin-bottom: 10px;
-    padding:8px;
+    // background-color:$white;
+    color:$black;
+    // border:1px solid $black;
+    // padding:8px;
 }
 
 .supply{
@@ -110,7 +112,8 @@ input{
     .productTitle{
         font-size:20px;
         text-transform: capitalize;
-        padding:2px;
+        padding:4px;
+        margin-bottom: 12px;
     }
 }
 

@@ -1,19 +1,17 @@
 [
-        {
-            "productName": "saree",
-            "quantity": 20,
-            "price" : 700
-            
-        },
-        {
-            "productName": "chudi",
-            "quantity": 15,
-            "price" : 900
-        },
-        {
-            "productName": "shirt",
-            "quantity": 30,
-            "price" : 1200
-        }
-    ]
-
+    {
+        "productName": "saree",
+        "quantity": 20,
+        "price": 700
+    },
+    {
+        "productName": "chudi",
+        "quantity": 15,
+        "price": 900
+    },
+    {
+        "productName": "shirt",
+        "quantity": 30,
+        "price": 1200
+    }
+]

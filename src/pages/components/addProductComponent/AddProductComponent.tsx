@@ -4,7 +4,13 @@ import {v4 as uuidv4} from 'uuid'
 import {addProduct} from '../../../redux/retailerSlice';
 import { ChangeEvent } from "react";
 import './addProductComponent.scss';
-import { AiFillDelete } from 'react-icons/ai';
+import { ImCross } from 'react-icons/im';
+import {AiFillDelete} from 'react-icons/ai';
+import {TiPlus} from 'react-icons/ti';
+import {useState } from 'react'
+
+
+
 type productType = {
     productDetails:{
         id:string,
@@ -25,7 +31,8 @@ type cUserType = {
 const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
     const dispatch = useAppDispatch();
     const wholesaleDetails = useAppSelector(state=>state.wholesale.products)
-     const currentDate = new Date().toLocaleString()
+    const currentDate = new Date().toLocaleString()
+    const [error,setError] = useState(false) 
     const {
         register,
         control,
@@ -60,6 +67,7 @@ const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
         findProduct && setValue(`productDetails.${index}.price`,findProduct?.price)
         findProduct && setValue (`productDetails.${index}.productName`,name)
         findProduct && setValue (`productDetails.${index}.date`,currentDate)
+        setError(false)
     }
    
     const handleClose = () => {
@@ -80,15 +88,10 @@ const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
     }
 
     const addItem = () => {
-        if(purchase[fields.length - 1].productName !== '') 
-        {
+        (purchase[fields.length - 1].productName !== '') ?
             append({id:uuidv4(),productName:'',quantity:1}) 
-        }
-        else 
-        {
-             alert("Enter Valid Details")
-        }   
-        
+            :
+            setError(true)  
     }
 
 
@@ -102,7 +105,7 @@ const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
                             <div>{cAddress}</div>
                         </div>
                         <div>
-                        <button className = "close" onClick = {handleClose}>x</button>
+                        <ImCross className = "close" onClick = {handleClose}>x</ImCross>
                         </div>
                     </div>
                 <div className = "addProducts">
@@ -113,7 +116,7 @@ const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
                         <div className = "productTitle">Total Price</div>
                         <div className = "productTitle">
                             { fields.length !==  wholesaleDetails.length &&
-                            <button type = "button" className="addItem" onClick = {addItem}>ADD</button>
+                            <TiPlus className="addItem" onClick = {addItem} />
                             }
                             </div>
                     </div>
@@ -170,6 +173,7 @@ const AddProductComponent = ({cUser,cAddress,open,setOpen}:cUserType) => {
                 }
 
                 </div>
+                {error && <p>Please select a product</p>}
 
                 <div className="supply">
                     <button type = "submit">Supply</button>

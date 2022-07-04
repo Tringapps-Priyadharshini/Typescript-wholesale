@@ -1,17 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import wholesaleDetails from '../wholesaleJson/wholesaleDetails.json'
 import { addProduct } from "./retailerSlice";
+import { wholesale } from "../interface/WholesaleInterface";
 
 
-type wholesaleType = {
-    products:{
-        productName:string,
-        quantity:number,
-        price:number
-    }[]
-}
-
-const initialState : wholesaleType = {
+const initialState : wholesale = {
     products: localStorage['wholesale'] ? JSON.parse(localStorage['wholesale']) : wholesaleDetails
 }
 

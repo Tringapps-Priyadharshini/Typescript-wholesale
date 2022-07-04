@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container,Backdrop } from '@mui/material';
 import {useAppSelector } from '../../../redux/hooks';
 import AddProductComponent from '../addProductComponent/AddProductComponent';
-import DisplayProduct from '../displayComponent/DisplayProduct';
+import DisplayProductComponent from '../displayComponent/DisplayProductComponent';
 const HeaderComponent = () => {
     const retailerDetails = useAppSelector(state => state.retailers.retailers)
     const [cUser,setUser] = useState<string>('')
@@ -47,7 +47,7 @@ const HeaderComponent = () => {
                 </Backdrop>  
   
         </div>
-        <DisplayProduct />
+        <DisplayProductComponent />
 
         </div>
     )
